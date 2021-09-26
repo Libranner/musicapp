@@ -11,7 +11,12 @@ import SwiftUI
 struct MusicAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ArtistsListView()
+            .onAppear {
+              let navBarAppearance = UINavigationBar.appearance()
+              navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+              navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            }
         }
     }
 }

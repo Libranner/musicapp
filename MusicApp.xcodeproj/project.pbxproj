@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EE3EA38E26FD30CA00E3835A /* MusicAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EA38D26FD30CA00E3835A /* MusicAppApp.swift */; };
-		EE3EA39026FD30CA00E3835A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EA38F26FD30CA00E3835A /* ContentView.swift */; };
 		EE3EA39226FD30CB00E3835A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE3EA39126FD30CB00E3835A /* Assets.xcassets */; };
 		EE3EA39526FD30CB00E3835A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE3EA39426FD30CB00E3835A /* Preview Assets.xcassets */; };
 		EE3EA39F26FD30CC00E3835A /* MusicAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EA39E26FD30CC00E3835A /* MusicAppTests.swift */; };
@@ -24,6 +23,7 @@
 		EE3EA3D627009DF800E3835A /* URLSession+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EA3D527009DF800E3835A /* URLSession+Extensions.swift */; };
 		EE3EA3D827009F0800E3835A /* ArtistsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EA3D727009F0800E3835A /* ArtistsListView.swift */; };
 		EE3EA3DA27009F2400E3835A /* ArtistListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EA3D927009F2400E3835A /* ArtistListViewModel.swift */; };
+		EE3EA3DD2700C92B00E3835A /* ThumbnailImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EA3DC2700C92B00E3835A /* ThumbnailImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +46,6 @@
 /* Begin PBXFileReference section */
 		EE3EA38A26FD30CA00E3835A /* MusicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE3EA38D26FD30CA00E3835A /* MusicAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicAppApp.swift; sourceTree = "<group>"; };
-		EE3EA38F26FD30CA00E3835A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EE3EA39126FD30CB00E3835A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE3EA39426FD30CB00E3835A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EE3EA39A26FD30CC00E3835A /* MusicAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +63,7 @@
 		EE3EA3D527009DF800E3835A /* URLSession+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extensions.swift"; sourceTree = "<group>"; };
 		EE3EA3D727009F0800E3835A /* ArtistsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsListView.swift; sourceTree = "<group>"; };
 		EE3EA3D927009F2400E3835A /* ArtistListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListViewModel.swift; sourceTree = "<group>"; };
+		EE3EA3DC2700C92B00E3835A /* ThumbnailImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +117,6 @@
 				EE3EA3B726FD34EA00E3835A /* Core */,
 				EE3EA3C126FD356B00E3835A /* Features */,
 				EE3EA38D26FD30CA00E3835A /* MusicAppApp.swift */,
-				EE3EA38F26FD30CA00E3835A /* ContentView.swift */,
 				EE3EA39126FD30CB00E3835A /* Assets.xcassets */,
 				EE3EA39326FD30CB00E3835A /* Preview Content */,
 			);
@@ -207,6 +206,7 @@
 		EE3EA3C126FD356B00E3835A /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				EE3EA3DB2700ACAF00E3835A /* Common */,
 				EE3EA3C226FD357300E3835A /* AlbumList */,
 				EE3EA3C026FD355700E3835A /* ArtistList */,
 			);
@@ -227,6 +227,14 @@
 				EE3EA3CF27008F5B00E3835A /* ArtistsRemoteRepository.swift */,
 			);
 			path = Artists;
+			sourceTree = "<group>";
+		};
+		EE3EA3DB2700ACAF00E3835A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EE3EA3DC2700C92B00E3835A /* ThumbnailImageView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,8 +370,8 @@
 				EE3EA3C627008C2000E3835A /* ArtistsRepository.swift in Sources */,
 				EE3EA3D627009DF800E3835A /* URLSession+Extensions.swift in Sources */,
 				EE3EA3BC26FD353000E3835A /* Artist.swift in Sources */,
+				EE3EA3DD2700C92B00E3835A /* ThumbnailImageView.swift in Sources */,
 				EE3EA3C426FD360000E3835A /* Track.swift in Sources */,
-				EE3EA39026FD30CA00E3835A /* ContentView.swift in Sources */,
 				EE3EA3D4270094BE00E3835A /* Response.swift in Sources */,
 				EE3EA38E26FD30CA00E3835A /* MusicAppApp.swift in Sources */,
 				EE3EA3BF26FD354200E3835A /* Album.swift in Sources */,

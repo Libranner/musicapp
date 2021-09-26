@@ -10,5 +10,9 @@ import Foundation
 struct Artist: Identifiable, Hashable, Codable {
   let id: Double
   let name: String
-  let pictureSmall, pictureMedium, pictureBig, pictureXl: String
+  let picture: String
+
+  var pictureURL: URL? {
+    URL(string: picture)
+  }
 }

@@ -19,6 +19,7 @@ class ArtistListViewModel: ObservableObject {
     self.artistsRepository = artistsRepository
 
     $searchQuery
+      .throttle(for: .milliseconds(300), scheduler: RunLoop.main, latest: true)
       .receive(on: DispatchQueue.main)
       .sink { _ in
       } receiveValue: { [weak self] query in
@@ -29,8 +30,11 @@ class ArtistListViewModel: ObservableObject {
   }
 
   func searchArtist(for query: String) {
+    guard !query.isEmpty else {
+      return
+    }
+
     artistsRepository.getArtists(for: query)
-      .throttle(for: .milliseconds(200), scheduler: DispatchQueue.main, latest: true)
       .receive(on: DispatchQueue.main)
       .sink { _ in
       } receiveValue: { [weak self] result in

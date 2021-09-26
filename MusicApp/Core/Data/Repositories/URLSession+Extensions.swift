@@ -19,7 +19,8 @@ extension URLSession {
             .decode(type: Response<T>.self, decoder: decoder)
             .map(\.result)
             .mapError { error in
-              .network(description: error.localizedDescription)
+              debugPrint("🐛 ERROR: \(error)")
+              return .network(description: error.localizedDescription)
             }
             .eraseToAnyPublisher()
     }

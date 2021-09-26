@@ -12,22 +12,21 @@ struct ArtistsListView: View {
 
   var body: some View {
     NavigationView {
-      VStack(alignment: .leading) {
-        ScrollView {
-          List(viewModel.searchResult) { artist in
-            Text(artist.name)
+      ScrollView {
+        LazyVStack(alignment: .leading, spacing: 25) {
+          ForEach(viewModel.searchResult) { artist in
+            HStack(spacing: 15) {
+              ThumbnailImageView(imageURL: artist.pictureURL)
+              Text(artist.name)
+            }
           }
         }
+        .padding()
       }
-      .padding()
-      .searchable(text: $viewModel.searchQuery, prompt: "Search...", suggestions: {
-        ForEach(viewModel.searchResult, id: \.self) { suggestion in
-          Text(suggestion.name)
-            .searchCompletion(suggestion.name)
-        }
-      })
+      .searchable(text: $viewModel.searchQuery, prompt: "Search...")
       .navigationTitle("Artists")
-      .ignoresSafeArea(edges: /*@START_MENU_TOKEN@*/.bottom/*@END_MENU_TOKEN@*/)
+      .foregroundColor(Color.white)
+      .background(Color.black)
     }
   }
 }
