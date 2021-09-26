@@ -9,6 +9,6 @@ import Combine
 
 protocol ArtistsRepository {
   func getArtists(for query: String) -> AnyPublisher<[Artist], APIError>
-  func getAlbums(for artistId: Double) -> AnyPublisher<[Album], APIError>
-  func getTracks(for albumId: Double)  -> AnyPublisher<[Track], APIError>
+  func getAlbums(for artistId: Int) -> AnyPublisher<[Album], APIError>
+  func getTracks(for albumId: Int)  -> AnyPublisher<[Track], APIError>
 }

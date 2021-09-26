@@ -8,5 +8,10 @@
 import Foundation
 
 struct Track: Identifiable, Hashable, Codable {
-  var id: Double
+  let id: Int
+  let title: String
+  let link: String
+  let duration: Int
+  let trackPosition: Int
+  let diskNumber: Int
 }

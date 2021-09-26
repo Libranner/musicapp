@@ -8,7 +8,7 @@
 import Foundation
 
 struct Artist: Identifiable, Hashable, Codable {
-  let id: Double
+  let id: Int
   let name: String
   let picture: String
 

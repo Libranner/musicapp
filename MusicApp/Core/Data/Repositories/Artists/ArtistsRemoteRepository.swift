@@ -20,7 +20,7 @@ struct ArtistsRemoteRepository: ArtistsRepository {
     return urlSession.publisher(for: url)
   }
 
-  func getAlbums(for artistId: Double) -> AnyPublisher<[Album], APIError> {
+  func getAlbums(for artistId: Int) -> AnyPublisher<[Album], APIError> {
     guard let url = Endpoints.albums(artistId: artistId).url else {
       return Fail(error: APIError.badURL).eraseToAnyPublisher()
     }
@@ -28,7 +28,7 @@ struct ArtistsRemoteRepository: ArtistsRepository {
     return urlSession.publisher(for: url)
   }
 
-  func getTracks(for albumId: Double) -> AnyPublisher<[Track], APIError> {
+  func getTracks(for albumId: Int) -> AnyPublisher<[Track], APIError> {
     guard let url = Endpoints.albums(artistId: albumId).url else {
       return Fail(error: APIError.badURL).eraseToAnyPublisher()
     }
@@ -40,8 +40,8 @@ struct ArtistsRemoteRepository: ArtistsRepository {
 private extension ArtistsRemoteRepository {
   enum Endpoints {
     case artists(query: String)
-    case albums(artistId: Double)
-    case tracks(albumId: Double)
+    case albums(artistId: Int)
+    case tracks(albumId: Int)
 
     var url: URL? {
       switch self {

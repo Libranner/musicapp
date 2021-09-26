@@ -8,5 +8,11 @@
 import Foundation
 
 struct Album: Identifiable, Hashable, Codable {
-  var id: Double
+  let id: Int
+  let title: String
+  let cover: String
+
+  var coverURL: URL? {
+    URL(string: cover)
+  }
 }

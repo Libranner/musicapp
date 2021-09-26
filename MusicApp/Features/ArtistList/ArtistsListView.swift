@@ -8,23 +8,32 @@
 import SwiftUI
 
 struct ArtistsListView: View {
-  @ObservedObject private var viewModel = ArtistListViewModel(with: ArtistsRemoteRepository())
+  private let repository: ArtistsRepository
+  @ObservedObject private var viewModel: ArtistListViewModel
+
+  init(repository: ArtistsRepository = ArtistsRemoteRepository()) {
+    self.repository = repository
+    self.viewModel = ArtistListViewModel(with: repository)
+  }
 
   var body: some View {
     NavigationView {
       ScrollView {
         LazyVStack(alignment: .leading, spacing: 25) {
           ForEach(viewModel.searchResult) { artist in
-            HStack(spacing: 15) {
-              ThumbnailImageView(imageURL: artist.pictureURL)
-              Text(artist.name)
+            NavigationLink(destination: AlbumListView(viewModel: AlbumListViewModel(with: repository, artist: artist))) {
+              HStack(spacing: 15) {
+                ThumbnailImageView(imageURL: artist.pictureURL, size: CGSize(width: 70, height: 50))
+                Text(artist.name)
+              }
             }
           }
         }
         .padding()
       }
-      .searchable(text: $viewModel.searchQuery, prompt: "Search...")
+      .searchable(text: $viewModel.searchQuery, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search...")
       .navigationTitle("Artists")
+      .navigationBarTitleDisplayMode(.inline)
       .foregroundColor(Color.white)
       .background(Color.black)
     }
@@ -33,6 +42,8 @@ struct ArtistsListView: View {
 
 struct ArtistsListView_Previews: PreviewProvider {
     static var previews: some View {
+      NavigationView {
         ArtistsListView()
+      }
     }
 }
