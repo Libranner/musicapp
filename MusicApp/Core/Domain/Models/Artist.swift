@@ -15,4 +15,10 @@ struct Artist: Identifiable, Hashable, Codable {
   var pictureURL: URL? {
     URL(string: picture)
   }
+
+  enum CodingKeys: String, CodingKey {
+    case id
+    case name
+    case picture = "picture_medium"
+  }
 }
