@@ -27,6 +27,8 @@
 		EE3EA3DF2700D59800E3835A /* AlbumListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EA3DE2700D59800E3835A /* AlbumListView.swift */; };
 		EE3EA3E12700D73500E3835A /* AlbumListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EA3E02700D73500E3835A /* AlbumListViewModel.swift */; };
 		EE3EA3E32700DA5300E3835A /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EA3E22700DA5300E3835A /* AlbumView.swift */; };
+		EE3EA3E62700E53100E3835A /* TrackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EA3E52700E53100E3835A /* TrackListView.swift */; };
+		EE3EA3E82700E61F00E3835A /* TrackListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EA3E72700E61F00E3835A /* TrackListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		EE3EA3DE2700D59800E3835A /* AlbumListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListView.swift; sourceTree = "<group>"; };
 		EE3EA3E02700D73500E3835A /* AlbumListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListViewModel.swift; sourceTree = "<group>"; };
 		EE3EA3E22700DA5300E3835A /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
+		EE3EA3E52700E53100E3835A /* TrackListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListView.swift; sourceTree = "<group>"; };
+		EE3EA3E72700E61F00E3835A /* TrackListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +219,7 @@
 				EE3EA3DB2700ACAF00E3835A /* Common */,
 				EE3EA3C226FD357300E3835A /* AlbumList */,
 				EE3EA3C026FD355700E3835A /* ArtistList */,
+				EE3EA3E42700E51700E3835A /* TrackList */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -244,6 +249,15 @@
 				EE3EA3DC2700C92B00E3835A /* ThumbnailImageView.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		EE3EA3E42700E51700E3835A /* TrackList */ = {
+			isa = PBXGroup;
+			children = (
+				EE3EA3E52700E53100E3835A /* TrackListView.swift */,
+				EE3EA3E72700E61F00E3835A /* TrackListViewModel.swift */,
+			);
+			path = TrackList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,10 +400,12 @@
 				EE3EA38E26FD30CA00E3835A /* MusicAppApp.swift in Sources */,
 				EE3EA3BF26FD354200E3835A /* Album.swift in Sources */,
 				EE3EA3D027008F5B00E3835A /* ArtistsRemoteRepository.swift in Sources */,
+				EE3EA3E62700E53100E3835A /* TrackListView.swift in Sources */,
 				EE3EA3D827009F0800E3835A /* ArtistsListView.swift in Sources */,
 				EE3EA3DA27009F2400E3835A /* ArtistListViewModel.swift in Sources */,
 				EE3EA3C827008D4F00E3835A /* APIError.swift in Sources */,
 				EE3EA3E12700D73500E3835A /* AlbumListViewModel.swift in Sources */,
+				EE3EA3E82700E61F00E3835A /* TrackListViewModel.swift in Sources */,
 				EE3EA3DF2700D59800E3835A /* AlbumListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

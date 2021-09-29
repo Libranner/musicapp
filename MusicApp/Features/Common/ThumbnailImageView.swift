@@ -34,6 +34,6 @@ struct ThumbnailImageView: View {
 
 struct ThumbnailImageView_Previews: PreviewProvider {
   static var previews: some View {
-    return ThumbnailImageView(imageURL: nil, size: CGSize(width: 20, height: 20))
+    return ThumbnailImageView(imageURL: URL(string: "https://api.deezer.com/album/149198842/image"), size: CGSize(width: 20, height: 20))
   }
 }

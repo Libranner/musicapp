@@ -14,4 +14,19 @@ struct Track: Identifiable, Hashable, Codable {
   let duration: Int
   let trackPosition: Int
   let diskNumber: Int
+
+  enum CodingKeys: String, CodingKey {
+    case id
+    case title
+    case link
+    case duration
+    case trackPosition = "track_position"
+    case diskNumber = "disk_number"
+  }
+
+  var formattedDuration: String {
+    let minutes =  duration/60
+    let seconds = duration % 60
+    return "\(minutes):\(seconds)"
+  }
 }

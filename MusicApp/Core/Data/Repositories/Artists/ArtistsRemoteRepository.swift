@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-struct ArtistsRemoteRepository: ArtistsRepository {
+class ArtistsRemoteRepository: ArtistsRepository, ObservableObject {
   private let urlSession =  URLSession.shared
   private let decoder = JSONDecoder()
 
@@ -29,7 +29,7 @@ struct ArtistsRemoteRepository: ArtistsRepository {
   }
 
   func getTracks(for albumId: Int) -> AnyPublisher<[Track], APIError> {
-    guard let url = Endpoints.albums(artistId: albumId).url else {
+    guard let url = Endpoints.tracks(albumId: albumId).url else {
       return Fail(error: APIError.badURL).eraseToAnyPublisher()
     }
 

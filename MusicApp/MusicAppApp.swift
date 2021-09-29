@@ -9,14 +9,17 @@ import SwiftUI
 
 @main
 struct MusicAppApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ArtistsListView()
-            .onAppear {
-              let navBarAppearance = UINavigationBar.appearance()
-              navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-              navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-            }
+  @StateObject var repository = ArtistsRemoteRepository()
+  
+  var body: some Scene {
+    WindowGroup {
+      ArtistsListView()
+        .onAppear {
+          let navBarAppearance = UINavigationBar.appearance()
+          navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+          navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         }
+        .environmentObject(repository)
     }
+  }
 }

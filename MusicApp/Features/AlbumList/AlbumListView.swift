@@ -9,32 +9,32 @@ import SwiftUI
 
 struct AlbumListView: View {
   @ObservedObject private var viewModel: AlbumListViewModel
-
+  
   init(viewModel: AlbumListViewModel) {
     self.viewModel = viewModel
   }
-
+  
   var body: some View {
-    NavigationView {
-      VStack(alignment: .leading) {
-        ScrollView {
-          LazyVGrid(columns: columns, spacing: 30) {
-            ForEach(viewModel.albums) { album in
+    VStack(alignment: .leading) {
+      ScrollView {
+        LazyVGrid(columns: columns, spacing: 30) {
+          ForEach(viewModel.albums) { album in
+            NavigationLink(destination: TrackListView(album: album)) {
               AlbumView(album: album, artist: viewModel.artist)
             }
           }
         }
       }
-      .padding()
-      .navigationTitle("Albums")
-      .ignoresSafeArea(edges: /*@START_MENU_TOKEN@*/.bottom/*@END_MENU_TOKEN@*/)
-      .background(Color.black).opacity(0.9)
-      .onAppear {
-        viewModel.getAlbums()
-      }
+    }
+    .padding()
+    .navigationTitle(viewModel.artist.name)
+    .ignoresSafeArea(edges: /*@START_MENU_TOKEN@*/.bottom/*@END_MENU_TOKEN@*/)
+    .background(Color.black).opacity(0.9)
+    .onAppear {
+      viewModel.getAlbums()
     }
   }
-
+  
   private var columns: [GridItem] {
     Array(repeating: .init(.flexible()), count: 2)
   }
